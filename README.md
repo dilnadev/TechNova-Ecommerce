@@ -51,27 +51,27 @@ The platform follows a clean REST API architecture, with a React frontend commun
 ## ✨ Features
 
 ### 👤 User Features
-- 🔐 **Secure Authentication** — JWT-based signup/login with bcrypt password hashing
-- 🔍 **Product Search & Filter** — Real-time search by keyword and category
-- 🛒 **Cart Management** — Add, remove, and update item quantities
-- 📦 **Order Placement** — COD and Razorpay online payment options
-- 📋 **Delivery Address** — Save and select multiple delivery addresses
-- 📄 **Policy Pages** — Terms & Conditions, Privacy Policy, Return & Cancellation
+-  **Secure Authentication** — JWT-based signup/login with bcrypt password hashing
+-  **Product Search & Filter** — Real-time search by keyword and category
+-  **Cart Management** — Add, remove, and update item quantities
+-  **Order Placement** — COD and Razorpay online payment options
+-  **Delivery Address** — Save and select multiple delivery addresses
+-  **Policy Pages** — Terms & Conditions, Privacy Policy, Return & Cancellation
 
 ### 🛠️ Admin Features
-- 🔑 **Role-Based Access** — Admin-only routes protected by role guard
-- ➕ **Product Management** — Add, edit, and delete products (CRUD)
-- 🗂️ **Category Management** — Organize products by category
-- 📊 **Product Listing** — View all products with price, stock, and actions
+-  **Role-Based Access** — Admin-only routes protected by role guard
+- **Product Management** — Add, edit, and delete products (CRUD)
+-  **Category Management** — Organize products by category
+-  **Product Listing** — View all products with price, stock, and actions
 
 ### ⚙️ Technical Features
-- 🏗️ **REST API** — Clean, resource-based API design
-- 💳 **Razorpay Integration** — Secure payment with signature verification
-- 📱 **Fully Responsive** — Mobile-first design using Tailwind CSS v4
-- 🎨 **Custom Theme** — White & Blue brand palette with Inter font
-- 🔄 **Real-time Cart Sync** — Cross-component cart updates via custom events
-- 🌐 **URL-synced Filters** — Category and search params reflected in URL
-- 🔒 **Protected Routes** — Admin pages redirect unauthenticated users
+-  **REST API** — Clean, resource-based API design
+-  **Razorpay Integration** — Secure payment with signature verification
+-  **Fully Responsive** — Mobile-first design using Tailwind CSS v4
+-  **Custom Theme** — White & Blue brand palette with Inter font
+-  **Real-time Cart Sync** — Cross-component cart updates via custom events
+-  **URL-synced Filters** — Category and search params reflected in URL
+-  **Protected Routes** — Admin pages redirect unauthenticated users
 
 ---
 
@@ -217,7 +217,7 @@ npm run dev
 |---|---|---|
 | `VITE_RAZORPAY_KEY_ID` | Razorpay public Key ID (for checkout popup) | `rzp_test_xxxxxxxxxx` |
 
-> ⚠️ **Never commit `.env` files to version control.** Both files are listed in `.gitignore`.
+
 
 ---
 
@@ -354,37 +354,12 @@ TechNova-Ecommerce/
 - **ES Module Gotcha** — Debugged a real-world issue where `import` hoisting caused environment variables to be `undefined` at module load time, requiring lazy initialization of the Razorpay instance inside functions rather than at the module level.
 
 ---
-
-## 🔮 Future Improvements
-
-- 🧾 **Admin Dashboard Analytics** — Sales charts, revenue tracking, and order statistics using a charting library
-- ❤️ **Wishlist Feature** — Allow users to save products for later with persistent storage
-- ⭐ **Product Reviews & Ratings** — User-submitted reviews with star ratings and moderation
-- 📱 **PWA Support** — Make TechNova installable as a Progressive Web App with offline capabilities
-- 🔔 **Email Notifications** — Order confirmation and shipping update emails via Nodemailer
-- 🔎 **Advanced Search** — Fuzzy search, price range filter, and sorting (price, newest, rating)
+g)
 
 ---
 
-## 🤝 Contributing
 
-Contributions are welcome! Here's how to get involved:
 
-```bash
-# 1. Fork the repository
-# 2. Create your feature branch
-git checkout -b feature/AmazingFeature
-
-# 3. Commit your changes
-git commit -m "Add AmazingFeature"
-
-# 4. Push to the branch
-git push origin feature/AmazingFeature
-
-# 5. Open a Pull Request
-```
-
-Please make sure your code follows the existing style and all features are tested before submitting a PR.
 
 ---
 
