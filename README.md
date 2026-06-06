@@ -15,7 +15,7 @@
 
 <br/>
 
-![TechNova Banner](https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=1200&q=80&auto=format&fit=crop)
+
 
 </div>
 
@@ -44,7 +44,7 @@
 
 The platform follows a clean REST API architecture, with a React frontend communicating with a Node.js + Express backend, backed by MongoDB for persistent data storage. Role-based access control separates admin functionality from regular user flows, and Razorpay integration enables seamless online payments.
 
-Built as a portfolio project to demonstrate proficiency in full-stack JavaScript development — covering authentication, database design, API development, and responsive UI engineering.
+
 
 ---
 
