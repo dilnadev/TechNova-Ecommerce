@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate, Link } from "react-router";
 import api from "../api/axios";
 
 export default function Login() {
@@ -26,15 +26,17 @@ export default function Login() {
       console.log(res,"data");
       
       //Save Token to localStorage
-      localStorage.setItem("token",res.data.token);
-      localStorage.setItem("userId",res.data.user.id);
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("userId", res.data.user.id);
+      localStorage.setItem("role", res.data.user.role);
 
       setMsg("Login Successful");
 
-      //Redirect to Home Page after 1 second
-      setTimeout(()=>{
-        navigate("/");
-      },1000);
+      // Redirect admin to admin panel, regular users to home
+      const destination = res.data.user.role === "admin" ? "/admin/products" : "/";
+      setTimeout(() => {
+        navigate(destination);
+      }, 1000);
     } catch(err){
       setMsg(err.response?.data?.message || "An error occurred" );
     }
@@ -77,6 +79,13 @@ export default function Login() {
             Login
           </button>
         </form>
+
+        <p className="mt-6 text-center text-sm text-gray-500">
+          Don't have an account?{" "}
+          <Link to="/signup" className="text-blue-500 font-semibold hover:underline">
+            Sign up
+          </Link>
+        </p>
       </div>
     </div>
   );

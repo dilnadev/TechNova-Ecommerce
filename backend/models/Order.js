@@ -35,6 +35,11 @@ const orderSchema = new mongoose.Schema(
       default: "COD",
     },
 
+    paymentId: {
+      type: String,
+      default: null,
+    },
+
     status: {
       type: String,
       default: "Placed",

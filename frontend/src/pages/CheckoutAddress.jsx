@@ -30,15 +30,24 @@ export default function CheckoutAddress() {
         navigate("/checkout");
     }
 
+    const placeholders = {
+        fullName:    "Full Name",
+        phone:       "Phone Number",
+        addressLine: "Address Line (House No, Street)",
+        city:        "City",
+        state:       "State",
+        pincode:     "Pincode",
+    };
+
     return(
         <div className="max-w-xl mx-auto p-6">
             <h1 className="text-2xl font-bold mb-4">Delivery Address</h1>
             {
                 Object.keys(form).map((key) => (
-                    <input 
+                    <input
                         key={key}
-                        name = {key}
-                        placeholder={key}
+                        name={key}
+                        placeholder={placeholders[key]}
                         onChange={handleChange}
                         className="w-full p-2 border border-gray-300 rounded mb-4"
                     />

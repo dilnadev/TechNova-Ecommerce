@@ -43,6 +43,9 @@ export const updateProduct = async (req, res) => {
             req.body,
             { new: true }
         );
+        if (!updated) {
+            return res.status(404).json({ message: 'Product not found' });
+        }
         res.json({
             message: 'Product updated successfully',
             updated,

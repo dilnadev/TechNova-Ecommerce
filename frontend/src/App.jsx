@@ -7,6 +7,11 @@ import AddProduct from "./admin/AddProduct";
 import EditProduct from "./admin/EditProduct";
 import ProductList from "./admin/ProductList";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import AdminGuard from "./components/AdminGuard";
+import TermsAndConditions from "./pages/TermsAndConditions";
+import ReturnCancellation from "./pages/ReturnCancellation";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Cart from "./pages/Cart";
 import CheckoutAddress from "./pages/CheckoutAddress";
 import Checkout from "./pages/Checkout";
@@ -18,6 +23,7 @@ function Layout() {
     <>
       <Navbar />
       <Outlet />
+      <Footer />
     </>
   );
 }
@@ -32,12 +38,20 @@ const router = createBrowserRouter([
       { path: "/product/:id", element: <ProductDetails /> },
       { path : "/cart", element: <Cart />},
 
-      { path: "/admin/products", element: <ProductList /> },
-      { path: "/admin/products/add", element: <AddProduct /> },
-      { path: "/admin/products/edit/:id", element: <EditProduct /> },
+      {
+        element: <AdminGuard />,
+        children: [
+          { path: "/admin/products", element: <ProductList /> },
+          { path: "/admin/products/add", element: <AddProduct /> },
+          { path: "/admin/products/edit/:id", element: <EditProduct /> },
+        ],
+      },
       { path: "/checkout-address", element: <CheckoutAddress /> },
       { path: "/checkout", element: <Checkout /> },
-      { path: "/order-success/:id", element:<OrderSuccess /> }
+      { path: "/order-success/:id", element:<OrderSuccess /> },
+      { path: "/terms", element: <TermsAndConditions /> },
+      { path: "/return-policy", element: <ReturnCancellation /> },
+      { path: "/privacy-policy", element: <PrivacyPolicy /> },
      
     ],
   },
