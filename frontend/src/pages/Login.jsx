@@ -9,6 +9,7 @@ export default function Login() {
     password:""
   })
   const [msg,setMsg]=useState("");
+  const [loading, setLoading] = useState(false);
   const navigate=useNavigate();
 
   const handleChange=(e)=>{
@@ -21,6 +22,8 @@ export default function Login() {
   const handleSubmit=async(e)=>{
     e.preventDefault();
 
+    setLoading(true);
+    setMsg("Connecting to server, please wait...");
     try{
       const res = await api.post("/auth/login",form);
       console.log(res,"data");
@@ -39,6 +42,8 @@ export default function Login() {
       }, 1000);
     } catch(err){
       setMsg(err.response?.data?.message || "An error occurred" );
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -74,9 +79,10 @@ export default function Login() {
           />
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors"
+            disabled={loading}
+            className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors disabled:opacity-60"
           >
-            Login
+            {loading ? "Please wait..." : "Login"}
           </button>
         </form>
 

@@ -8,7 +8,8 @@ const [form,setForm] = useState({
     email:'',
     password:''
 }); 
- const [msg,setMsg]=useState("");
+ const [msg, setMsg] = useState("");
+ const [loading, setLoading] = useState(false);
 
 const handleChange=(e) => {
  setForm({
@@ -19,16 +20,18 @@ const handleChange=(e) => {
 
 }
 
-const handleSubmit=async(e) => {
-    e.preventDefault();
-
-try{
-      const response=await api.post("/auth/signup",form);
-      setMsg(response.data.message);
-    } catch(err){
-      setMsg(err.response?.data?.message || "An error occurred" );
-    }
-
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true);
+  setMsg("Connecting to server, please wait...");
+  try {
+    const response = await api.post("/auth/signup", form);
+    setMsg(response.data.message);
+  } catch(err) {
+    setMsg(err.response?.data?.message || "An error occurred");
+  } finally {
+    setLoading(false);
+  }
 }
 
  return (
@@ -71,9 +74,10 @@ try{
           />
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors"
+            disabled={loading}
+            className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors disabled:opacity-60"
           >
-            Sign Up
+            {loading ? "Please wait..." : "Sign Up"}
           </button>
         </form>
       </div>
