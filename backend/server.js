@@ -20,7 +20,7 @@ const app=express();
 app.use(cors({
   origin: [
     'http://localhost:5173',
-    /\.vercel\.app$/,
+    'https://tech-nova-ecommerce.vercel.app',
   ],
   credentials: true,
 }));
