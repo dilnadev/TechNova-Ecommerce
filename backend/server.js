@@ -17,7 +17,13 @@ dotenv.config();
 
 const app=express();
 
-app.use(cors());           /* connect backend with frontend */
+app.use(cors({
+  origin: [
+    'http://localhost:5173',
+    /\.vercel\.app$/,
+  ],
+  credentials: true,
+}));
 app.use(express.json());   /* middleware when using API */
 
 app.use('/api/auth', authRoutes);
